@@ -1,0 +1,22 @@
+---
+title: Features
+description: An overview of the important features of RediVelocity
+icon: Feather
+---
+
+import { Step, Steps } from 'fumadocs-ui/components/steps';
+
+On this page, we'll explore the key features of RediVelocity and how they can benefit your proxy setup.
+
+## Features of RediVelocity
+First of all, I want to clarify that RediVelocity is not the "everything" proxy plugin. It focuses on specific use cases and provides features that enhance the management of your proxy setup, specifically multi-proxy setups. Here are some of the key features:
+
+- **Player Count Synchronization**: RediVelocity allows you to sync the player count across multiple proxies, ensuring that regardless of which proxy got pinged in the server list, they all have the same playercount.
+
+- **Event Access via Redis**: With RediVelocity, you can access certain events that are fired on the proxy through Redis, enabling you to create more dynamic and responsive plugins. Those events include the `PostLoginListener`, `ServerSwitchListener` and `DisconnectListener`.
+
+- **Built-in Commands for Insights**: RediVelocity comes with built-in commands that provide insights into your proxies, helping you monitor the distribution of players. In the future, we plan to expand these commands to offer even more detailed analytics and control.
+
+- **Proxy actions for developers**: RediVelocity provides a set of actions that developers can use to interact with the proxies via Redis Pub/Sub, allowing for greater flexibility and control in managing proxy behavior from backend servers. Currently, you can only kick players from the proxy, but more actions will be added in the future.
+
+These features make RediVelocity a powerful tool for managing and optimizing your proxy setup. Also great for developers to gain insights into their proxy infrastructure and create more responsive and dynamic plugins.

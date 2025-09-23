@@ -1,0 +1,13 @@
+---
+title: Why is there no dedicated API?
+description: An explanation of the design choices behind RediVelocity's architecture
+icon: FileQuestionMark
+---
+
+RediVelocity was designed with simplicity and performance in mind. Instead of a traditional API, it leverages existing protocols and systems to provide a seamless experience for developers. This approach minimizes overhead and allows for greater flexibility in how integrations are implemented.
+
+By avoiding a dedicated API, RediVelocity can adapt more easily to changes in the underlying systems it interacts with. This design choice also encourages developers to work with the tools and libraries they are already familiar with, rather than learning a new API.
+
+In summary, the decision to forgo a dedicated API was driven by a desire for simplicity, performance, and flexibility in the RediVelocity architecture. We are using Redis Pub/Sub for communication between your plugins / your code, allowing for a more dynamic and responsive integration process.
+
+Also, you can easily extend RediVelocity by creating your own plugins that interact with the existing systems, without being constrained by a rigid API. And you are not force to Minecraft plugins or the JVM world, anything that has a Redis Library can interact with RediVelocity.

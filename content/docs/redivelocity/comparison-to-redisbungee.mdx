@@ -1,0 +1,33 @@
+---
+title: Comparison to RedisBungee
+description: A comparison between RediVelocity and RedisBungee
+icon: Compass
+---
+
+On this page, we'll explore the key differences between RediVelocity and RedisBungee, helping you make an informed decision about which proxy solution is right for your needs.
+
+## Key Differences
+
+- **Architecture**: RediVelocity is designed specifically for Velocity proxies, while RedisBungee is built for BungeeCord and Velocity. This means that RediVelocity can take advantage of Velocity's unique features and optimizations, while RedisBungee has to keep compatibility with both proxy types.
+
+- **Feature Set**: While both plugins offer similar core functionality, RediVelocity does **not** include support for BungeeCord, which may limit its use in mixed proxy environments. Also RediVelocity does not provide a developer API for creating custom integrations, because we think that Redis will serve this purpose in most cases.
+
+- **Performance**: RediVelocity is optimized for performance in Velocity environments, potentially offering better performance and lower latency compared to RedisBungee in similar scenarios.
+
+- **Ease of Use**: Depending on your existing infrastructure and familiarity with either proxy type, one solution may be easier to integrate and use than the other.
+
+## Smaller differences
+
+- **Configuration**: RediVelocity has a more streamlined configuration process, making it easier to set up and manage compared to RedisBungee.
+
+- **Usage of Redis Pub/Sub**: ValioBungee, the most popular fork of RedisBungee, has removed support for Redis Pub/Sub, which may impact certain use cases that rely on this feature. This is why we recommend considering RediVelocity if your setup depends on Pub/Sub functionality.
+
+- **More features for a broader range of use cases**: RediVelocity aims to provide a more extensive set of features tailored to the needs of Velocity users, potentially offering better support for specific use cases compared to RedisBungee. For example, RediVelocity allows you to only allow users to connect with specific version, if ViaVersion or ViaBackwards is installed, but you only want to allow specific versions.
+
+- **Community Support**: RedisBungee has been around longer and has a larger user base, which may result in more community support and resources available for troubleshooting.
+
+- **Documentation**: Both plugins have documentation available, but the quality and comprehensiveness may vary. It's essential to review the documentation for each solution to ensure it meets your needs.
+
+## Conclusion
+
+In summary, both RediVelocity and RedisBungee have their strengths and weaknesses. RediVelocity is optimized for Velocity environments and offers a more streamlined configuration process, while RedisBungee has a larger user base and more community support. Ultimately, the choice between RediVelocity and RedisBungee will depend on your specific requirements and the proxy environment you're working with.

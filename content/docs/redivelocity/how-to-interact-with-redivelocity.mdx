@@ -1,0 +1,48 @@
+---
+title: How to interact with RediVelocity
+description: A guide for developers on how to interact with RediVelocity
+icon: Blocks
+---
+import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
+
+First of all, RediVelocity does not have a dedicated API. Instead, it uses Redis Pub/Sub for communication between your plugins or code and the RediVelocity system. This allows for a more dynamic and responsive integration process. You can read more about that here: [Why is there no dedicated API?](why-no-real-api)
+This means that you can interact with RediVelocity using any programming language or framework that has a Redis library. You are not limited to Minecraft plugins or the JVM world. This flexibility allows you to create custom integrations and plugins that suit your specific needs.
+
+## What do you need to get started?
+To interact with RediVelocity, you will need:
+
+1. A Redis client library for your programming language of choice.
+2. Basic knowledge of Redis Pub/Sub concepts, JSON and how to interact with data stored in Redis.
+3. Access to a running instance of RediVelocity.
+
+## What can you do with RediVelocity?
+With RediVelocity, you can:
+
+1. Kick players from the network by uuid.
+2. Receive some information about your proxies with the data stored in Redis.
+
+Currently this is everything you can do, but more features may be added in the future.
+
+## How to kick a player
+To kick a player from the network, you need to publish a message to the `redivelocity-kick` channel with the player's UUID and a kick message. Currently, we can't provide actuall code examples, but if you want to add a code example for a specific language, feel free to do so! You can create a pull request here: https://github.com/byPixelTV/docs.bypixel.dev
+
+### What should I send to the channel?
+You should send a JSON object with the following structure:
+
+```json
+{
+  "uuid": "player-uuid-here",
+  "reason": "You have been kicked from the server."
+}
+```
+
+If you want to colorize the kick message, you have to use the MiniMessage format. Here's an example:
+
+```json
+{
+  "uuid": "player-uuid-here",
+  "reason": "<red>You have been kicked from the server.</red>"
+}
+```
+
+You can learn more about MiniMessage formatting [here](https://docs.adventure.kyori.net/minimessage/).

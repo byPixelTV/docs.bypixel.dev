@@ -1,0 +1,20 @@
+{
+  "title": "RediVelocity",
+  "description": "Docs for the RediVelocity plugin",
+  "root": true,
+  "icon": "DatabaseZap",
+  "pages": [
+    "---Introduction---",
+    "index",
+    "features",
+    "comparison-to-redisbungee",
+    "---Setup---",
+    "configuring-redivelocity",
+    "troubleshooting",
+    "commands",
+    "---Developer Guide---",
+    "why-no-real-api",
+    "how-to-interact-with-redivelocity",
+    "how-to-contribute"
+  ]
+}
