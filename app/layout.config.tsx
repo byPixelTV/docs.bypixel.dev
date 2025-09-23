@@ -14,7 +14,7 @@ export const baseOptions: BaseLayoutProps = {
     title: (
       <>
         <Image
-          src="https://cdn.bypixel.dev/raw/byPixelTV-Snorlax-PB.gif"
+          src="https://cdn.bypixel.dev/raw/Gd3cZH.gif"
           alt="byPixel Logo"
           width={24}
           height={24}
