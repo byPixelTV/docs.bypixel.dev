@@ -8,76 +8,47 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 On this page, you will find information about how to configure RediVelocity to suit your needs. We will cover the main configuration options available and provide examples to help you get started. Also, we will explain each configuration option in detail.
 
 ## The default configuration
-This is not exactly the default configuration, but it is a good starting point for most users. You can find the actual default configuration in the `config.yml` file after installing the plugin.
 
 ```yaml
-# RediVelocity config
-# Generated automatically at plugin load
+config-version: 1
 
-# Internal config version. DO NOT CHANGE! Could already be changed by the time this documentation was written
-configVersion: 13
-# Debug mode (verbose logging)
-debugMode: true
+debug-mode: false # enable to log additional debug information to the console
 
-# Json format for some data
-jsonFormat: false
+proxy-id:
+  id: "proxy-1" # unique id of this proxy instance, must be different for each proxy in the network. will be ignored if auto-generate is true
+  auto-generate: true # set to true to auto-generate a random unique id on first startup (recommended)
 
-# Redis config
 redis:
-  host: "127.0.0.1"
+  host: "localhost"
   port: 6379
-  username: "default"
-  password: "password"
-  cluster: false
-  channel: "redivelocity-players"
+  username: "default" # if you don't know what this is, leave it as "default" or if your Redis server has no username, set to blank
+  password: "ver!yS€cureP@ssw0rd" # set to blank if no password is required
+  database: 0 # if you don't know what this is, leave it at 0
 
-# Cloud system integration (can be simplecloud, vulpescloud or cloudnet)
-cloud:
-  enabled: false
-  cloudSystem: "cloudnet"
+cloud-support:
+  enabled: false # this will enable support for cloud systems like CloudNet, SimpleCloud or VulpesCloud. It will replace the proxy-id with the cloud system's server id automatically
+  cloud-system: "cloudnet" # can be "cloudnet", "simplecloud" or "vulpescloud"
 
-# Playercount sync
-playerCountSync: true
+update-check:
+  enabled: true
+  notify-admins: true # notify users with the permission "redivelocity.admin.updatecheck" about available updates
+  check-interval: 3600 # in seconds
 
-# Versioncontrol
-versionControl:
-  enabled: false
-  allowedVersions:
-    - 769
-    - 768
-    - 767
-    - 770
-  kickMessage: "<red><b>MyNetwork.net</b></red> <grey>-</grey> <color:#ff0000><b>UNSUPORTED VERSION</b></color><br><br><color:#96a7b2>You are using a <color:#ff0000>unsuported version!</color><br>You need version 1.21+ to join <red><b>MyNetwork.net!</b></red>"
+playercount-sync:
+  enable: true
+  use-backend-server-count: false # if enabled, the global player count will be the sum of players on the specified backend servers instead of the proxies
+  backend-server-names: # list of backend server names to include in the player count (only used if use-backend-server-count is true). add an entry contain '*' to include all backend servers. regex is supported
+    - "server-1"
+    - "server-2"
 
-# Joingate
-joingate:
-  allowJavaClients: true
-  floodgateHook: false
-  allowBedrockClients: false
+playerversion-check:
+  enabled: true
+  allowed-versions:
+    - 773
 
-# Message format
-messages:
-  prefix: "<dark_grey>[<color:#08a8f8>RediVelocity</color>]</dark_grey>"
+commands: # enable or disable specific commands
+  find: true # find players across all proxies and display some information about them
 ```
-
-## What are each configuration options?
-### debugMode:
-- Enables verbose logging for debugging purposes.
-### jsonFormat:
-- Enables JSON format for some data, but this is not used currently, and will most likely be removed in the future.
-### redis:
-- Configuration options for the Redis connection. Should be self-explanatory.
-### cloud:
-- Configuration options for the cloud system integration. Can be simplecloud, vulpescloud or cloudnet. If you are using a cloud system, make sure to enable this option and configure it accordingly. It will use the name of the server that is provided by the cloud system.
-- Also make sure that the plugin provided by the cloud you are using is loaded, CloudNet for example requires the Bridge module to make the RediVelocity integration work.
-### playerCountSync:
-- Enables player count synchronization between different proxies.
-### versionControl:
-- Enables version control for the proxy. If enabled, only players with allowed versions can join the server.
-### joingate:
-- Configuration options for the joining gate. This includes options for allowing Java and Bedrock clients, as well as any necessary hooks for plugins like Floodgate.
-### messages:
-- Configuration options for the messages sent by the proxy. This includes the prefix used for all messages.
 
 <Accordions>
 <Accordion title="What are the default config options?" id="default-options">
@@ -87,7 +58,12 @@ You can get a default config if you just delete the old one and restart your pro
 </Accordion>
 <Accordion title="What happens if the config version changes?" id="config-version-changes">
 
-RediVelocity will try to use your own config and apply the changes made, if this fails it creates a backup in the `config-backup` folder. Depending on how many errors there are during the process, you may need to find the correct file from the created ones.
+RediVelocity will automatically update your config to the new version while keeping your existing settings. It will add new options with their default values and remove deprecated ones.
+
+</Accordion>
+<Accordion title="Where can I customize the messages?" id="customize-messages">
+
+RediVelocity has a separate messages file located at `messages.yml` in the same folder as the main config. You can customize all messages shown to players and admins there.
 
 </Accordion>
 </Accordions>

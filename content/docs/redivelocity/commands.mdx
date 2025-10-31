@@ -9,16 +9,12 @@ On this page, you will find information about the built-in commands available in
 ## List of Commands
 ### `/rv proxy` commands
 - `/rv proxy list` - Lists all proxy instances connected with RediVelocity.
-- `/rv proxy players [<proxy_id>]` - Lists all players connected to all proxy instances or a specific proxy instance if `<proxy_id>` is provided.
-- `/rv proxy servers` - Lists all servers connected to the current proxy instance.
-- `/rv proxy leader` - Displays the leader of all deployed proxy instances.
-- `/rv proxy playercount [<proxy_id>]` - Displays the player count of all proxy instances or a specific proxy instance if `<proxy_id>` is provided.
+- `/rv proxy info <proxy_id>` - Displays detailed information about a specific proxy instance.
 
 ### `/rv player` commands
-- `/rv player ip <player>` - Displays the IP address of a specific player.
-- `/rv player uuid <player>` - Displays the UUID of a specific player.
-- `/rv player proxy <player>` - Displays connected proxy of a specific player.
-- `/rv player server <player>` - Displays the connected server of a specific player.
-- `/rv player servers` - Lists the servers players are connected to.
+- `/rv player info <player>` - Displays information about a specific player across all proxies.
+
+### `/find <player>` command
+- Searches for a player across all connected proxies and displays their current server and proxy information.
 
 These are the current available commands in RediVelocity. If you have ideas for new commands or improvements, feel free to share them in a Github issue or on the [Discord server](https://discord.gg/yVp7Qvhj9k).
